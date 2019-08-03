@@ -1,0 +1,118 @@
+Write a program that prints the sum and difference of two numbers entered by the user
+include Irvine32.inc
+.data
+
+number1 dword ?
+number2 dword ?
+sum dword 0
+.code
+main proc
+
+call readint
+mov number1 , eax
+
+call readint
+mov number2 , eax
+
+add eax , number1
+
+call crlf
+call writeint
+call crlf
+
+mov ecx , number1
+sub ecx , number2
+mov eax , ecx
+call writeint
+call crlf
+call waitmsg
+invoke ExitProcess, 0
+main endp
+end main
+
+
+- Write a program that converts the letters in a string entered by the user to capital
+letters. Use procedures
+include Irvine32.inc
+.data
+
+string byte 25 dup(0)
+long dword lengthof string
+.code
+main proc
+
+mov edx , offset string
+mov ecx , long
+call readstring
+mov ecx , eax
+
+mov esi , edx
+call cap
+
+invoke ExitProcess, 0
+main endp
+
+
+cap proc
+
+xor edx ,edx
+
+L0:
+
+mov al , [esi+edx]
+sub al , 32
+call writechar
+
+inc edx
+loop L0
+
+call crlf
+call waitmsg
+ret
+cap endp
+
+end main
+
+
+
+
+- Write a program that enters a space after each letter in a string entered by the user. Use procedures
+include Irvine32.inc
+.data
+
+string byte 25 dup(0)
+long dword lengthof string
+.code
+main proc
+
+mov edx , offset string
+mov ecx , long
+call readstring
+mov ecx , eax
+
+mov esi , edx
+call cap
+
+invoke ExitProcess, 0
+main endp
+
+
+cap proc
+
+xor edx ,edx
+
+L0:
+
+mov al , [esi+edx]
+call writechar
+mov al ,' '
+call writechar
+inc edx
+loop L0
+
+call crlf
+call waitmsg
+ret
+cap endp
+
+end main

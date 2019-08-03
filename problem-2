@@ -1,0 +1,85 @@
+Using the debugger, find the values of the following registers after the execution of the program?
+
+EAX = 00000080
+EBX = FFFFFF80
+ECX = 00000000
+EDX = FFFFFF80
+ESI = 00000080
+EDI = 00000080
+
+What does the suffix d, h, b, t, y do?
+h = hexadecimal
+r = encoded real
+q/o = octal
+t = decimal (alternate)
+d = decimal
+y = binary (alternate)
+b = binary
+
+Why do have t and y when we already have d and b?
+
+t and y is alternate.
+
+2.5 Programming Exercises
+1. Signed and Unsigned Values
+- Using the assembly program in 2.2.1, show the maximum and minimum values that can be
+MOV ’ed to x86 registers?
+
+32 bit
+signed = 2147483647 to -2147483648.
+unsiged = 4294967295 .
+
+
+
+biyt 64
+sined = 9223372036854775807 to 9223372036854775808
+unsined = 18446744073709551615
+
+
+
+
+
+
+
+
+
+Manipulating Register Values .
+
+mov eax , 513
+mov ebx , 12
+sub eax , ebx
+mov ecx , - 78h
+mov edx , - 10101000b
+add ecx , edx
+mov esi , 128t
+mov edi , 10000000y
+sub esi , eax
+
+Write an assembly program that adds the values of EBX , ECX , EDX , ESI , and EDI into the
+register EAX
+
+mov eax , 0
+mov ebx , 12
+mov ecx , 23
+add ebx , ecx
+mov edx , - 10101000b
+mov esi , 55
+add edx , esi
+mov edi , 10000000y
+add edx , edi
+add edi , ebx
+add eax , edi
+
+
+Using registers, write an assembly program that calculates the following expression
+X = (A + B + C) − (D + E)
+
+mov ebx , 33
+mov ecx , 13
+mov edx , 88
+add ebx , ecx
+add ebx , edx
+mov esi , 33
+mov edi , 41
+add edi , esi
+sub ebx ,adi

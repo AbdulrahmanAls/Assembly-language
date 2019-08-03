@@ -1,0 +1,43 @@
+Write a program that changes the case of each letter of its input
+include Irvine32.inc
+.data
+
+string byte 25 dup(0)
+long dword lengthof string
+.code
+main proc
+
+mov edx , offset string
+mov ecx , long
+call readstring
+mov ecx , eax
+
+mov esi , edx
+call cap
+
+invoke ExitProcess, 0
+main endp
+
+
+cap proc
+
+xor edx ,edx
+
+L0:
+
+mov al , [esi+edx]
+.if al >= 97
+sub al , 32
+.else
+add al , 32
+.endif
+call writechar
+inc edx
+loop L0
+
+call crlf
+call waitmsg
+ret
+cap endp
+
+end main

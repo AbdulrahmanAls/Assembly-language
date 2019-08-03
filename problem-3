@@ -1,0 +1,80 @@
+FRIST ONE
+; AddTwo.asm - adds two 32-bit integers.
+; Chapter 3 example
+
+.386
+.model flat,stdcall
+.stack 4096
+ExitProcess proto,dwExitCode:dword
+
+.data
+
+A dword 35
+B dword 23
+F dword 12
+D dword 10
+E dword 7
+
+result dword 0
+
+.code
+main proc
+
+mov eax , A
+mov ebx , B
+mov ecx , F
+mov edx , D
+mov esp , E
+mov esi , result
+
+add eax , ebx
+sub edx , esp
+add edx , ecx
+sub eax , edx
+
+mov result , eax
+
+	invoke ExitProcess,0
+main endp
+end main
+
+
+
+
+
+
+
+the second
+; AddTwo.asm - adds two 32-bit integers.
+; Chapter 3 example
+
+.386
+.model flat,stdcall
+.stack 4096
+ExitProcess proto,dwExitCode:dword
+
+.data
+
+January word 1 ; - 31 days
+February word 2 ;- 28 days in a common year and 29 days in leap years
+March word 3 ; - 31 days
+April word 4 ; - 30 days
+May word 5 ;  - 31 days
+June  word 6 ; - 30 days
+July  word 7 ; - 31 days
+August  word 8 ;  - 31 days
+September  word 9 ; - 30 days
+October  word 10 ; - 31 days
+November  word 11 ;  - 30 days
+December  word 12 ; - 31 days
+
+
+month byte 1 , 2 , 3 , 4 , 5 , 6 , 7 , 8 , 9 , 10 , 11 , 12
+array = ($ - month )
+.code
+main proc
+
+
+	invoke ExitProcess,0
+main endp
+end main

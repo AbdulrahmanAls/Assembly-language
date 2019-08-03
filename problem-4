@@ -1,0 +1,78 @@
+Abdulrahman alsalamah
+351112948
+
+fibonashi
+
+.686
+.model flat, stdcall
+.stack 4096
+ExitProcess proto, dwExitCode:dword
+
+.data
+
+val dword 1
+val2 dword 1
+val3 dword 1
+count dword 9
+
+.code
+main proc
+
+mov ecx , count
+
+L0:
+
+mov ebx, val2
+mov val ,ebx
+mov eax , val3
+mov val2 , eax
+mov eax , val
+mov ebx , val2
+add eax , ebx
+mov val3 , eax
+
+loop L0
+
+mov val3 , eax
+
+   	invoke ExitProcess, 0
+main endp
+end main
+
+
+
+
+
+
+
+
+
+
+
+TITLE	Copying Strings
+
+.686
+.model flat, stdcall
+.stack 4096
+ExitProcess proto, dwExitCode:dword
+
+.data
+main_string	BYTE	"Original String!", 0
+STRING_SIZE = ($ - main_string)
+;copy_string BYTE	SIZEOF main_string DUP(0)
+copy_string BYTE	STRING_SIZE DUP(0)
+.code
+main proc
+	mov esi, 0
+	mov ecx, SIZEOF main_string
+	;mov ecx, LENGTHOF main_string
+
+L0:
+	mov al, main_string[esi]
+	mov copy_string[esi], al
+	inc esi
+	loop L0
+
+	invoke ExitProcess, 0
+main endp
+end main

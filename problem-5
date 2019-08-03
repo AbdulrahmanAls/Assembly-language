@@ -1,0 +1,68 @@
+Status Flags
+	Write a program that shows all the status flags affected by the INC, DEC, ADD, and SUB instructions
+
+.686
+.model flat, stdcall
+.stack 4096
+ExitProcess proto, dwExitCode:dword
+
+.data
+a1 word 0ffffh
+b1 sword 07fffh
+c1 dword 0ffffffffh
+d1 sdword 07fffffffh
+.code
+main proc
+
+mov ax , a1
+add ax , 1; CY and AC flages
+sub ax , 1
+mov bx , b1
+add bx , 1 ; OV flages
+mov eax , c1
+add eax , 1 ; ZR and CY falges
+mov eax , d1
+add eax , 1  ; PL and OV flages
+
+	invoke ExitProcess, 0
+main endp
+end main
+
+
+- Stack Operations
+	Using only push and pop instructions exchange the value in EAX with EBX and the value in ECX with the value in EDX
+
+.686
+.model flat, stdcall
+.stack 4096
+ExitProcess proto, dwExitCode:dword
+
+.data
+
+a1 dword 10
+b1 dword 20
+c1 dword 30
+d1 dword 40
+.code
+main proc
+
+mov eax , a1
+mov ebx , b1
+mov ecx , c1
+mov edx , d1
+
+push eax
+push ebx
+push ecx
+push edx
+
+pop ecx
+pop edx
+pop eax
+pop ebx
+
+
+
+	invoke ExitProcess, 0
+main endp
+end main
