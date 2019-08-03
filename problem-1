@@ -1,0 +1,38 @@
+Convert the following signed decimal to its 8-bit signed binary representation using two’s-complement (To binary, reverse bits, then add 1) 
+
+-1 = 11111111
+-16 = 11110000
+-32 = 11100000
+-64 = 11000000
+-100 = 10011100
+-128 = 10000000 
+
+Convert the following signed 8-bit binary integers to their decimal representation (Reverse the bits, add 1, then get the two’s complement)
+10101010 = -86
+10011111 = -97
+11111110 = -2
+10110000 = -80
+10000011 = -125
+11001100 = -52
+
+Which of the following 16-bit hexadecimal numbers is negative (If the most significant digit is ≥ 8 the it is negative) 
+0CAB = positive
+1234 = positive
+DCBA = negative
+5CD4 = positive
+
+
+
+
+FFFF = negative
+3FEB = positive
+
+
+
+Convert the following signed hexadecimal numbers to their decimal representation (To two’s complement, then to decimal preceded by minus sign) 
+
+
+FA = -6
+8F = -113
+91 = -111
+FF = -1
